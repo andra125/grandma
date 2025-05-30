@@ -22,30 +22,30 @@
       background-color: rgba(168, 50, 50, 0.85);
       color: white;
       text-align: center;
-      padding: 25px 20px 20px;
+      padding: 15px 20px;
       position: relative;
       z-index: 2;
     }
     .site-header h1 {
       margin: 0;
-      font-size: 1.8em;
+      font-size: 1.5em;
     }
     .site-header p {
-      margin-top: 8px;
-      font-size: 1em;
+      margin-top: 6px;
+      font-size: 0.95em;
     }
     .banner-image {
       width: 60%;
       max-width: 600px;
       height: auto;
       display: block;
-      margin: 20px auto;
+      margin: 10px auto 0; /* reduced top margin */
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     .container {
       max-width: 800px;
-      margin: 30px auto;
+      margin: 20px auto; /* reduced vertical spacing */
       background-color: rgba(255, 255, 255, 0.96);
       padding: 30px;
       border-radius: 8px;
@@ -55,10 +55,26 @@
       color: #a83232;
       border-bottom: 1px solid #eee;
       padding-bottom: 5px;
+      margin-top: 0;
     }
-    ul, ol {
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px 40px;
+      padding-left: 0;
+      margin-top: 5px; /* closer to heading */
+    }
+
+    .ingredients-grid li {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    ol {
       padding-left: 20px;
     }
+
     .cta-box {
       background-color: #fdf1f1;
       border: 2px dashed #a83232;
@@ -81,6 +97,7 @@
       border-radius: 4px;
       transition: background 0.3s;
       display: inline-block;
+      cursor: pointer;
     }
     .cta-box a:hover {
       background-color: #7c2222;
@@ -101,13 +118,13 @@
     <p>One bite, and everything changes...</p>
   </div>
 
-  <!-- Banner Image -->
+  <!-- Image -->
   <img src="hq720.jpg" alt="Grandma and Apple Pie" class="banner-image" />
 
-  <!-- Recipe Content -->
+  <!-- Content -->
   <div class="container">
     <h2>Ingredients</h2>
-    <ul>
+    <ul class="ingredients-grid">
       <li>6–7 Granny Smith apples</li>
       <li>1/2 cup white sugar</li>
       <li>1/2 cup brown sugar</li>
@@ -132,13 +149,26 @@
 
     <div class="cta-box">
       <p>But there’s one final ingredient you weren’t told about…</p>
-      <a href="https://your-other-domain.com">Click Here to Know</a>
+      <a onclick="redirectToRandom()">Click Here to Know</a>
     </div>
   </div>
 
   <div class="footer">
     &copy; 2025 Grandma’s Kitchen | Made with ❤️
   </div>
+
+  <script>
+    function redirectToRandom() {
+      const urls = [
+        "https://example.com",
+        "https://pieheaven.net",
+        "https://crustylove.org",
+        "https://secretflavor.co"
+      ];
+      const randomIndex = Math.floor(Math.random() * urls.length);
+      window.location.href = urls[randomIndex];
+    }
+  </script>
 
 </body>
 </html>
